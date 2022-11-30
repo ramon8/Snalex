@@ -8,4 +8,6 @@ export interface ILocation {
     oponentPoints: number;
     playerCards: ICard[];
     oponentCards: ICard[];
+
+    onDrop?: () => void
 }

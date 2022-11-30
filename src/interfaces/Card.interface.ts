@@ -5,4 +5,7 @@ export interface ICard {
     power: number;
     image?: string;
     description?: string;
+
+    onDragEnd?: (e: any) => void
+    onDragStart?: (e: any) => void
 }

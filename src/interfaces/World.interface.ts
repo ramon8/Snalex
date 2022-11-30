@@ -6,5 +6,7 @@ export interface IWorld {
     name: string;
     player: IPlayer;
     oponent: IPlayer;
+    turn: number;
+    maxTurns: number;
     locations: ILocation[];
 }

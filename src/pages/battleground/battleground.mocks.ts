@@ -2,57 +2,13 @@ import { ICard } from "../../interfaces";
 import { ILocation } from "../../interfaces/Location.interface";
 import { IPlayer } from "../../interfaces/Player.interface";
 import { IWorld } from "../../interfaces/World.interface";
-
-export const cardMock: ICard = {
-    id: 0,
-    name: 'Card',
-    mana: 0,
-    power: 0,
-}
-
-export const cardsInWorldMock: ICard[] = [
-    cardMock
-]
-
-export const cardsInHandMock: ICard[] = [
-    cardMock,
-    cardMock,
-    cardMock,
-    cardMock
-    // Loop the mocks to set diferent id and names
-].map((card: ICard, i: number) => ({ ...card, id: i, name: `${card.name} ${i}` }));
-
-export const locationsMock: ILocation[] = [
-    {
-        id: '0',
-        name: 'Location 1',
-        oponentPoints: 0,
-        playerPoints: 0,
-        playerCards: [cardMock, cardMock, cardMock, cardMock],
-        oponentCards: [cardMock],
-    },
-    {
-        id: '0',
-        name: 'Location 2',
-        oponentPoints: 0,
-        playerPoints: 0,
-        playerCards: [],
-        oponentCards: [cardMock, cardMock, cardMock],
-    },
-    {
-        id: '0',
-        name: 'Location 3',
-        oponentPoints: 0,
-        playerPoints: 0,
-        playerCards: [cardMock, cardMock],
-        oponentCards: [],
-    },
-]
+import { card1Mock, card2Mock, card3Mock, deckMock } from "../../mocks/card.mocks";
+import { locationsMock } from "../../mocks/location.mock";
 
 export const playerMock: IPlayer = {
     id: 0,
-    deck: [],
-    hand: [],
+    deck: deckMock,
+    hand: [card1Mock, card2Mock, card3Mock],
     mana: 1,
     name: 'Ramon'
 }
@@ -71,4 +27,6 @@ export const worldMock: IWorld = {
     player: playerMock,
     oponent: oponentMock,
     locations: locationsMock,
+    turn: 1,
+    maxTurns: 6,
 }
