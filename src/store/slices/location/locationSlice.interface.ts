@@ -39,8 +39,21 @@ export interface PushInOponentCards {
     card: Card;
 }
 
+
+export interface AddCardsToOponent {
+    locationIndex: number;
+    cards: Card[];
+}
+
+export interface addCardsToPlayer {
+    locationIndex: number;
+    cards: Card[];
+}
+
 export type SetPointsPayload = PayloadAction<SetPoints>
 export type SetPlayerCardsPayload = PayloadAction<SetPlayerCards>
 export type SetOponentCardsPayload = PayloadAction<SetOponentCards>
 export type PushInPlayerCardsPayload = PayloadAction<PushInPlayerCards>
 export type PushInOponentCardsPayload = PayloadAction<PushInOponentCards>
+export type AddCardsToOponentPayload = PayloadAction<AddCardsToOponent>
+export type addCardsToPlayerPayload = PayloadAction<addCardsToPlayer>

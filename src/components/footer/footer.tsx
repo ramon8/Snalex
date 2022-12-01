@@ -34,8 +34,8 @@ export const Footer = () => {
             {hand.map((card: any) => <Card {...cardToProps(card)} key={card.id} size="medium" />)}
         </CardsContainer>
         <ContainerButton>
-            <Counter><>{turn} / {maxTurns}</></Counter>
-            <Counter><>{mana} / {turn}</></Counter>
+            <Counter><>Turno: {turn} / {maxTurns}</></Counter>
+            <Counter><>Mana: {mana} / {turn}</></Counter>
             <Button onClick={onClickDone}>Done</Button>
         </ContainerButton>
     </FooterContainer>

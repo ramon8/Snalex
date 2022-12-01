@@ -4,6 +4,7 @@ export const FooterContainer = styled.div`
     display: grid;
     grid-template-columns: 2fr 1fr;
     place-items: center;
+    height: 300px;
 `
 export const CardsContainer = styled.div`
     display: grid;
@@ -23,11 +24,11 @@ export const ContainerButton = styled.div`
 `
 
 export const Button = styled.button`
-    font-size: 3rem;
+    font-size: 2rem;
     border: 0px;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     color: white;
     cursor: pointer;
     background: #2d762d;

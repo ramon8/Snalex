@@ -37,6 +37,6 @@ export const counterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setOponentPoints, setPlayerPoints, pushInOponentCards, pushInPlayerCards } = counterSlice.actions
+export const { addCardsToOponent, addCardsToPlayer, setOponentPoints, setPlayerPoints, pushInOponentCards, pushInPlayerCards } = counterSlice.actions
 
 export default counterSlice.reducer

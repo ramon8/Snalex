@@ -3,17 +3,21 @@ import styled from "@emotion/styled";
 export const LocationContainer = styled.div`
     display: grid;
     place-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 `
 
 export const ContainerCards = styled.div`
     display: grid;
     place-items: center;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    border: 1px solid green;
+    /* border: 1px solid green; */
+    background: lightgray;
+    padding: 16px;
+    margin: 32px;
     gap: 16px;
     width: 450px;
     height: 182px;
+    border-radius: 16px;
 `
 
 export const PlayerCards = styled(ContainerCards)`

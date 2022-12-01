@@ -34,7 +34,8 @@ export const CardContainer = styled(motion.div)`
     display: flex;
     align-items: center;
     justify-content: center;
-    transform-origin: 10% 60%;
+    /* transform-origin: 10% 60%; */
+    /* transform: translate(-50%, -50%); */
     /* gap: 16px 0px; */
 
     background: white;
