@@ -15,6 +15,7 @@ html,
   place-items: center;
   font-family: Andale Mono, monospace;
   user-select: none;
+  overflow: hidden;
 }
 
 #root {

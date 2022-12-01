@@ -2,7 +2,9 @@ import React from 'react';
 
 export const decorators = [
   (Story) => (
-    <Story />
+    <div style={{ fontFamily: 'font-family: Andale Mono, monospace' }}>
+      <Story />
+    </div>
   ),
 ];
 

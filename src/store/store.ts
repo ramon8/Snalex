@@ -1,9 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import world from './slices/world/worldSlice'
+import participants from './slices/player/playerSlice'
+import locations from './slices/location/locationsSlice'
+import game from './slices/game/gameSlice'
 
 export const store = configureStore({
     reducer: {
         world,
+        locations,
+        game,
+        ...participants,
     },
 })
 

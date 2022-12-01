@@ -1,6 +1,6 @@
 import './App.css';
-import { Battleground } from './pages/battleground/battleground';
-import { store } from './store'
+import { Battleground } from './pages';
+import { store } from './store/store'
 import { Provider } from 'react-redux'
 
 function App() {

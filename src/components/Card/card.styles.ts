@@ -1,47 +1,120 @@
 import styled from "@emotion/styled";
-import { Reorder } from "framer-motion";
+import { motion } from "framer-motion";
+import { CardProps, CardSize } from "./card.props";
 
-export const CardContainer = styled(Reorder.Item)`
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto 1fr;
-    gap: 16px 8px;
-    place-items:center;
 
-    box-shadow: 2px 2px 3px 1px black;
-    background-color: white;
-    
-    width: 100px;
-    height: 160px;
-    padding: 8px;
-    border-radius: 8px;
-    text-align: center;
-
-    cursor: pointer;
-`
 export const Circle = styled.div`
     display: grid;
     place-items: center;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
+    place-self: center;
+
+    padding: 4px;
+    margin: 4px;
+    border-radius: 2px 8px;
+    width: 1rem;
+    height: 1rem;
+
+    font-size: 1rem;
+    color: white;
 `
 
-export const Mana = styled(Circle)`
-        background: lightblue;
-        grid-column-start: 1;
-        grid-column-end: 2;
-`
+/** */
+export const CardContainer = styled(motion.div)`
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    scale: 1;
+
+    font-family: Andale Mono, monospace;
+    font-size: medium;
+    width: 100px;
+    height: 180px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: 10% 60%;
+    /* gap: 16px 0px; */
+
+    background: white;
+    box-shadow: 0 0 1px hsl(0deg 0% 0% / 0.075), 0 0 2px hsl(0deg 0% 0% / 0.075),
+        0 0 4px hsl(0deg 0% 0% / 0.075), 0 0 8px hsl(0deg 0% 0% / 0.075),
+        0 0 16px hsl(0deg 0% 0% / 0.075);
+
+    display: grid;
+    place-items: center;
+    grid-template: 
+        " name name power " 1fr
+        " icon icon icon  " 3fr
+        " desc desc desc  " auto
+        " cost .    .  " 1fr / 1fr 1fr 1fr;
+`;
 
 export const Name = styled.div`
-    place-self: start center;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-`
+    grid-area: name;
+    font-size: 1rem;
+`;
 
 export const Power = styled(Circle)`
-    background: orangered;
-    grid-column-start: 3;
-    grid-column-end: -1;
-`
+    grid-area: power;
+    background: orange;
+`;
+
+export const Cost = styled(Circle)`
+    grid-area: cost;
+    background: lightblue;
+`;
+
+export const Description = styled(motion.div)`
+    grid-area: desc;
+    background-color: rgba(255,100,0,.75);
+    margin: 4px;
+    border-radius: 8px;
+    padding: 8px;
+    color: white;
+    font-size: .7rem;
+    text-align: center;
+`;
+
+export const Icon = styled(motion.div)`
+    grid-area: icon;
+    font-size: 50px;
+`;
+
+
+export const CardDetailContainer = styled.div`
+`;
+
+
+export const CardDetail = styled(CardContainer)`
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    display: grid;
+    place-items: center;
+    grid-template-rows: 1fr auto;
+    transform: translate(-50%, -50%);
+    grid-template: 
+        " name name   power " 1fr
+        " icon icon   icon  " 3fr
+        " desc desc   desc  " auto
+        " .    button .     " auto
+        " cost .      .     " 1fr / 1fr 1fr 1fr;
+    width: 100px;
+    height: 194px;
+    z-index: 1;
+`;
+
+
+export const Button = styled(motion.button)`
+    font-size: 1rem;
+    grid-area: button;
+    font-weight: bolder;
+    border-radius: 50%;
+    background: #df2929;
+    border: 2px solid #df2929;
+    color: black;
+    cursor: pointer;
+`;

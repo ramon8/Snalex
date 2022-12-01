@@ -1,13 +1,18 @@
-import { ICard } from "./Card.interface";
-import { IPlayer } from "./Player.interface";
+import { CardProps } from "../components/card/card.props";
+import { LocationProps } from "../components/location/location.props";
+import { fruits } from "../mocks/fruits.mock";
+import { Card } from "./Card.interface";
 
-export interface ILocation {
-    id: string;
-    name: string;
-    playerPoints: number;
-    oponentPoints: number;
-    playerCards: ICard[];
-    oponentCards: ICard[];
-
-    onDrop?: () => void
+export interface Location {
+    id: string,
+    name: string,
+    oponentPoints: number,
+    playerPoints: number,
+    oponentCards: Card[],
+    playerCards: Card[],
 }
+
+export const locationAdapter = ({ name, id }: Location): LocationProps => ({
+    id,
+    name
+})

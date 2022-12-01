@@ -7,7 +7,7 @@ const initialState: WorldState = {
     id: 'w_1',
     maxTurns: 6,
     name: 'World',
-    turn: 0,
+    turn: 1,
 }
 
 export const counterSlice = createSlice({

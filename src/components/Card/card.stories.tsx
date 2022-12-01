@@ -1,31 +1,18 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { tomatoCardMock } from '../../mocks/card.mock';
 
-import { Card } from './card';
-import { Reorder } from 'framer-motion';
+import { fruits } from '../../mocks/fruits.mock';
+import { Card as CardComponent } from './card';
+import { CardProps } from './card.props';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'Example/Card',
-    component: Card,
-    decorators: [(Story) => (
-        <Reorder.Group onReorder={() => null} values={[]}>
-            <Story />
-        </Reorder.Group>
-    )],
-    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof Card>;
+    component: CardComponent,
+    args: tomatoCardMock,
+} as ComponentMeta<typeof CardComponent>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />
+const Template: ComponentStory<typeof CardComponent> = (args: CardProps) => <CardComponent {...args} />
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-    mana: 5,
-    power: 7,
-
-};
+export const Card = Template.bind({});

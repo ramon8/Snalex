@@ -1,24 +1,30 @@
-import { ICard } from "../../interfaces";
-import { ILocation } from "../../interfaces/Location.interface";
+import { LocationContainer, OponentCards, PlayerCards, Points } from "./location.style"
+import { useSelector } from 'react-redux';
+import { RootState } from "../../store/store";
+import { LocationProps } from "./location.props";
+import { PropsWithChildren } from "react";
+import { Location as LocatoinInterface } from './../../interfaces/Location.interface'
+import { CardProps } from "@mui/material";
 import { Card } from "../card";
-import { CardsContainer, LocationContainer, PointsContainer } from "./location.styles";
-
-export const Location = (props: ILocation) => {
-    const onReorder = () => null
-    const onDrop = () => {
-        props.onDrop && props.onDrop();
-    }
+import { Card as CardInterface, cardToProps } from "../../interfaces";
+export const Location = ({ name, id }: LocationProps) => {
+    const { locations } = useSelector((state: RootState) => state.locations);
 
 
-    return <LocationContainer>
-        <CardsContainer as="div" values={props.oponentCards} onReorder={onReorder}>
-            {props.oponentCards?.map((card: ICard) => <Card key={card.id} {...card} />)}
-        </CardsContainer>
-        <PointsContainer>{props.oponentPoints}</PointsContainer>
-        <h4>{props.name}</h4>
-        <PointsContainer>{props.playerCards.map((card: ICard) => card.power).reduce((a, b) => a + b, 0)}</PointsContainer>
-        <CardsContainer data-id={props.id} as="div" onReorder={onReorder} values={props.oponentCards}>
-            {props.playerCards?.map((card: ICard) => <Card key={card.id} {...card} />)}
-        </CardsContainer>
+    const location = useSelector((state: RootState) => state.locations).locations.find((location: LocatoinInterface) => location.id === id)
+    return <LocationContainer data-id={id}>
+        <OponentCards>
+            {location?.oponentCards.map((card: CardInterface) =>
+                <Card key={card.id} {...cardToProps(card)} drag={false} />)}
+        </OponentCards>
+        <Points>
+            <div>{location?.oponentPoints}</div>
+            {name}
+            <div>{location?.playerPoints}</div>
+        </Points>
+        <PlayerCards>
+            {location?.playerCards.map((card: CardInterface) =>
+                <Card key={card.id} {...cardToProps(card)} drag={false} />)}
+        </PlayerCards>
     </LocationContainer>
 }

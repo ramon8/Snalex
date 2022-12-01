@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-import { IWorld } from '../../interfaces/World.interface'
+import { localizationCards } from '../../../mocks/card.mock'
 import { LocationsState } from './locationSlice.interface'
 import * as reducers from './locationSlice.reducers'
 
@@ -10,17 +9,23 @@ const initialState: LocationsState = {
             id: 'l_1',
             name: 'Location 1',
             oponentPoints: 0,
-            playerPoints: 0
+            playerPoints: 0,
+            oponentCards: [],
+            playerCards: [],
         }, {
             id: 'l_2',
             name: 'Location 2',
             oponentPoints: 0,
-            playerPoints: 0
+            playerPoints: 0,
+            oponentCards: [],
+            playerCards: [],
         }, {
-            id: 'l_2',
-            name: 'Location 2',
+            id: 'l_3',
+            name: 'Location 3',
             oponentPoints: 0,
-            playerPoints: 0
+            playerPoints: 0,
+            oponentCards: [],
+            playerCards: [],
         }
     ]
 }
@@ -32,6 +37,6 @@ export const counterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setOponentPoints, setPlayerPoints } = counterSlice.actions
+export const { setOponentPoints, setPlayerPoints, pushInOponentCards, pushInPlayerCards } = counterSlice.actions
 
 export default counterSlice.reducer
